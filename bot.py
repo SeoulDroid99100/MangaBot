@@ -121,7 +121,7 @@ bot = Client('bot',
              api_id=int(('28213805')),
              api_hash=('8f80142dfef1a696bee7f6ab4f6ece34'),
              bot_token=('7858075187:AAFiMtVOdseEqkCkKYh2JWmPe8DkEY5wYC8'),
-             max_concurrent_transmissions=1000)
+             max_concurrent_transmissions=100)
 
 pdf_queue = AQueue()
 
@@ -677,7 +677,7 @@ async def update_mangas():
                 agen = client.iter_chapters(url, manga_name)
                 last_chapter = await anext(agen)
                 await db.add(LastChapter(url=url, chapter_url=last_chapter.url))
-                await asyncio.sleep(10)
+                await asyncio.sleep(2)
             else:
                 last_chapter = chapters_dictionary[url]
                 new_chapters: List[MangaChapter] = []
