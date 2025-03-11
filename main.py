@@ -2,7 +2,6 @@ import asyncio as aio
 from bot import *
 from flask import Flask
 import threading
-import uvloop  # Import uvloop
 
 # --- Flask App ---
 app = Flask(__name__)
@@ -22,14 +21,13 @@ async def async_main():
 
 if __name__ == '__main__':
     # Set uvloop as the event loop policy
-    uvloop.install()  # This line is the key addition for uvloop
+    # This line is the key addition for uvloop
 
     # Start Flask in a separate thread
     flask_thread = threading.Thread(target=run_flask)
     flask_thread.daemon = True
     flask_thread.start()
-    
-
+   
 
     # Run the asyncio event loop (now using uvloop)
     loop = aio.get_event_loop_policy().get_event_loop()  #or aio.get_event_loop() will also work.
@@ -38,4 +36,3 @@ if __name__ == '__main__':
     for i in range(10):
         loop.create_task(chapter_creation(i + 1))
     bot.run()
-    
