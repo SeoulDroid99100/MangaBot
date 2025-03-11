@@ -7,7 +7,7 @@ env_vars = {
   #Get For @BotFather
   "BOT_TOKEN": "",
   # Get For tembo.io
-  "DATABASE_URL_PRIMARY": "",
+  "DATABASE_URL_PRIMARY": "sqlite:///mydatabase.db",
   # Logs Channel Username Without @
   "CACHE_CHANNEL": "drunkCache0",
   # Force Subs Channel username without @
