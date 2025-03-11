@@ -7,6 +7,7 @@ from dataclasses import dataclass
 import datetime as dt
 import json
 
+from pyrogram import Client, filters
 import pyrogram.errors
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery, InputMediaDocument
 
@@ -16,7 +17,7 @@ from img2pdf.core import fld2pdf, fld2thumb
 from plugins import *
 import os
 
-from pyrogram import Client, filters
+
 from typing import Dict, Tuple, List, TypedDict
 from loguru import logger
 
