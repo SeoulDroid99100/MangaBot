@@ -28,7 +28,8 @@ if __name__ == '__main__':
     flask_thread = threading.Thread(target=run_flask)
     flask_thread.daemon = True
     flask_thread.start()
-    bot.run()
+    
+
 
     # Run the asyncio event loop (now using uvloop)
     loop = aio.get_event_loop_policy().get_event_loop()  #or aio.get_event_loop() will also work.
@@ -36,4 +37,5 @@ if __name__ == '__main__':
     loop.create_task(manga_updater())
     for i in range(10):
         loop.create_task(chapter_creation(i + 1))
+    bot.run()
     
